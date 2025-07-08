@@ -10,4 +10,10 @@ console.log("🌱 Database seeded.");
 
 async function seed() {
   // TODO
+  for (let i = 0; i <= 2; i++) {
+    const user = await createUser("user" + i, "password");
+    for (let j = 1; j <= 3; j++) {
+      await createTask(`Task ${j}`, false, user.id);
+    }
+  }
 }
